@@ -64,7 +64,6 @@ namespace FileDeleter
             // Delete files.
             foreach (string filename in filenames)
             {
-                await Task.Delay(1000); // DEBUG
                 string filePath = Path.Combine(folderPath, filename);
                 if (File.Exists(filePath))
                 {
@@ -100,6 +99,11 @@ namespace FileDeleter
         {
             folderPathTextBox.Clear();
             filenamesTextBox.Clear();
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

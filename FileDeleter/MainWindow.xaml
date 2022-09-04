@@ -110,7 +110,7 @@
                 </Button>
                 <Button x:Name="exitButton" 
                         Content="Exit"
-                        Background="White">
+                        Background="White" Click="exitButton_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="3"/>
