@@ -38,15 +38,18 @@ namespace FileDeleter
         {
             filenamesTextBox.Text = string.Join("\n", filenames);
         }
-
-        private async Task deleteFilesImpl()
+        private List<string> extractFilenames()
         {
-            // Extract filenames.
-            var filenames = filenamesTextBox.Text
+            return filenamesTextBox.Text
                 .Split('\n')
                 .Select(filename => filename.Trim())
                 .Where(filename => filename.Length > 0)
                 .ToList();
+        }
+        private async Task deleteFilesImpl()
+        {
+            // Extract filenames.
+            var filenames = extractFilenames();
 
             // Extract folder path.
             string folderPath = folderPathTextBox.Text.Trim();
@@ -71,7 +74,11 @@ namespace FileDeleter
                     {
                         await Task.Run(() => File.Delete(filePath));
                         deletedCount++;
-                        updateFilenamesTextBox(filenames.Where(fn => fn != filename).ToList());
+                        updateFilenamesTextBox(
+                            extractFilenames()
+                            .Where(fn => fn != filename)
+                            .ToList()
+                        );
                     } catch { }
                 }
             }
