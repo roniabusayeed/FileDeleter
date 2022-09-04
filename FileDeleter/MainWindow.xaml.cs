@@ -95,5 +95,11 @@ namespace FileDeleter
                 await deleteFilesImpl();
             }
         }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            folderPathTextBox.Clear();
+            filenamesTextBox.Clear();
+        }
     }
 }

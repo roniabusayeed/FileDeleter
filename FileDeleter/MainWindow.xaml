@@ -99,7 +99,7 @@
                 <Button x:Name="resetButton" 
                         Content="Reset"
                         Margin="0 0 8 0"
-                        Background="White">
+                        Background="White" Click="resetButton_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="3"/>
