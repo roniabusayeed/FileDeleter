@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FileDeleter"
         mc:Ignorable="d"
         Title="File Deleter" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#e6e6e6">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="auto"/>
@@ -21,7 +21,8 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="1" 
-              Grid.Column="1">
+              Grid.Column="1"
+              Margin="0 0 0 8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
@@ -31,19 +32,46 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Folder:"/>
-            <TextBox x:Name="folderPathTextBlock"
-                     Grid.Row="0" Grid.Column="1"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" 
+                       Text="Folder:" Margin="0 0 8 0"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="folderPathTextBox"
+                     Grid.Row="0" Grid.Column="1"
+                     VerticalContentAlignment="Center"
+                     Margin="0 0 8 0"
+                     Padding="4 0 4 0">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
             <Button x:Name="folderPathBrowseButton" 
-                    Content="Browse"
                     Grid.Row="0"
-                    Grid.Column="2"/>
+                    Grid.Column="2" 
+                    Content="Browse"
+                    Background="White" Click="folderPathBrowseButton_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="3"/>
+                        <Setter Property="Height" Value="24"/>
+                        <Setter Property="Width" Value="72"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
         <TextBox x:Name="filenamesTextBox"
                  Grid.Row="2" Grid.Column="1"
                  TextWrapping="Wrap"
-                 AcceptsReturn="True"/>
-        
+                 AcceptsReturn="True"
+                 Margin="0 0 0 8"
+                 Padding="4">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
         <Grid Grid.Row="3" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -55,12 +83,42 @@
 
             <StackPanel Grid.Row="0" Grid.Column="0">
                 <Button x:Name="eraseButton"
-                        Content="Erase"/>
+                        Content="Erase"
+                        Background="White">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="3"/>
+                            <Setter Property="Height" Value="24"/>
+                            <Setter Property="Width" Value="72"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="1"
                         Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="resetButton" Content="Reset"/>
-                <Button x:Name="exitButton" Content="Exit"/>
+                <Button x:Name="resetButton" 
+                        Content="Reset"
+                        Margin="0 0 8 0"
+                        Background="White">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="3"/>
+                            <Setter Property="Height" Value="24"/>
+                            <Setter Property="Width" Value="72"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="exitButton" 
+                        Content="Exit"
+                        Background="White">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="3"/>
+                            <Setter Property="Height" Value="24"/>
+                            <Setter Property="Width" Value="72"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
         </Grid>
     </Grid>

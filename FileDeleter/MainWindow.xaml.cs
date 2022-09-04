@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace FileDeleter
 {
@@ -23,6 +24,15 @@ namespace FileDeleter
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void folderPathBrowseButton_Click(object sender, RoutedEventArgs e)
+        {
+            using var dialog = new FolderBrowserDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                folderPathTextBox.Text = dialog.SelectedPath.Trim();
+            }
         }
     }
 }
