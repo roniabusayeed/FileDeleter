@@ -84,7 +84,7 @@
             <StackPanel Grid.Row="0" Grid.Column="0">
                 <Button x:Name="eraseButton"
                         Content="Erase"
-                        Background="White">
+                        Background="White" Click="eraseButton_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="3"/>
